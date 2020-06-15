@@ -58,7 +58,10 @@ public class UsuarioSpringData {
 		this.idade = idade;
 	}
 	
+	@Override
+	public String toString() {
+		return "UsuarioSpringData [id=" + id + ", nome=" + nome + ", login=" + login + ", senha=" + senha + ", email="
+				+ email + ", idade=" + idade + "]";
+	}
 	
-	
-
 }
