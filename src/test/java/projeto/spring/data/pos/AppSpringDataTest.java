@@ -1,5 +1,7 @@
 package projeto.spring.data.pos;
 
+import java.util.Optional;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +18,7 @@ public class AppSpringDataTest {
 	@Autowired
 	private InterfaceSpringDataUser interfaceSpringDataUser;
 	
-	@Test
+	
 	public void testInsert() {
 		UsuarioSpringData usuario = new UsuarioSpringData();
 		usuario.setNome("Jackson Kless");
@@ -29,9 +31,12 @@ public class AppSpringDataTest {
 		System.out.println("Dados gravado com sucesso: "+usuario);
 	}
 	
-	
+	@Test
 	public void testConsulta() {
-		System.out.println("salvando dados");
+		Optional<UsuarioSpringData> usuario = interfaceSpringDataUser.findById(1L) ;
+		System.out.println("Consultando dados: "+usuario);
 	}
+	
+	
 
 }
