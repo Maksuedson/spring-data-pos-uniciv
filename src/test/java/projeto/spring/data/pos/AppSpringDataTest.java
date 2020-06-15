@@ -23,10 +23,10 @@ public class AppSpringDataTest {
 	public void testInsert() {
 		UsuarioSpringData usuario = new UsuarioSpringData();
 		usuario.setNome("Jackson Kless");
-		usuario.setLogin("jackson");
-		usuario.setSenha("102030");
-		usuario.setEmail("jackson@gmail.com");
-		usuario.setIdade(37);
+		usuario.setLogin("erick");
+		usuario.setSenha("303030");
+		usuario.setEmail("erick@gmail.com");
+		usuario.setIdade(23);
 		
 		interfaceSpringDataUser.save(usuario);
 		System.out.println("Dados gravado com sucesso: "+usuario);
@@ -47,12 +47,26 @@ public class AppSpringDataTest {
 		
 	}
 	
-	@Test
+	
 	public void testConsultaTodos2() {
 		Iterable<UsuarioSpringData> lista = interfaceSpringDataUser.findAll();
 		for (UsuarioSpringData usuario : lista) {
 			System.out.println("Listando todos: "+usuario);			
 		}
+		
+	}
+	
+	@Test
+	public void testUpdate() {
+		Optional<UsuarioSpringData> usuario = interfaceSpringDataUser.findById(4L) ;
+		UsuarioSpringData data = usuario.get();
+		data.setNome("Erick Gomes da Silva");
+		
+		interfaceSpringDataUser.save(data);
+		
+		System.out.println("Usuario alterado com sucesso: "+data);
+		
+		testConsultaTodos();
 		
 	}
 	
