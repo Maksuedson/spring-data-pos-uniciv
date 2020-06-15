@@ -1,5 +1,6 @@
 package projeto.spring.data.pos;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.junit.Test;
@@ -31,12 +32,29 @@ public class AppSpringDataTest {
 		System.out.println("Dados gravado com sucesso: "+usuario);
 	}
 	
-	@Test
+	
 	public void testConsulta() {
 		Optional<UsuarioSpringData> usuario = interfaceSpringDataUser.findById(1L) ;
 		System.out.println("Consultando dados: "+usuario);
 	}
 	
+	
+	public void testConsultaTodos() {
+		List<UsuarioSpringData> lista =  (List<UsuarioSpringData>) interfaceSpringDataUser.findAll();
+		for (UsuarioSpringData usuario : lista) {
+			System.out.println("Consultando dados: "+usuario);
+		}
+		
+	}
+	
+	@Test
+	public void testConsultaTodos2() {
+		Iterable<UsuarioSpringData> lista = interfaceSpringDataUser.findAll();
+		for (UsuarioSpringData usuario : lista) {
+			System.out.println("Listando todos: "+usuario);			
+		}
+		
+	}
 	
 
 }
