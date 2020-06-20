@@ -3,7 +3,6 @@ package projeto.spring.data.pos;
 import java.util.List;
 import java.util.Optional;
 
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -56,7 +55,7 @@ public class AppSpringDataTest {
 		
 	}
 	
-	@Test
+	
 	public void testUpdate() {
 		Optional<UsuarioSpringData> usuario = interfaceSpringDataUser.findById(4L) ;
 		UsuarioSpringData data = usuario.get();
@@ -70,5 +69,20 @@ public class AppSpringDataTest {
 		
 	}
 	
+	
+	public void testDelete() {
+		interfaceSpringDataUser.deleteById(6l);				
+	}
+	
+	
+	public void testDelete2() {
+		Optional<UsuarioSpringData> usuarios = interfaceSpringDataUser.findById(8l) ;
+		
+		interfaceSpringDataUser.delete(usuarios.get());
+		System.out.println("Deletando usuário: "+usuarios.get().getNome());
+	}	
+	
 
+		
+	
 }

@@ -8,4 +8,5 @@ import projeto.spring.data.pos.model.UsuarioSpringData;
 @Repository
 public interface InterfaceSpringDataUser extends CrudRepository<UsuarioSpringData, Long> {
 
+
 }
