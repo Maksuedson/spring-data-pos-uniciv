@@ -3,6 +3,7 @@ package projeto.spring.data.pos;
 import java.util.List;
 import java.util.Optional;
 
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -82,7 +83,13 @@ public class AppSpringDataTest {
 		System.out.println("Deletando usuário: "+usuarios.get().getNome());
 	}	
 	
-
+	@Test
+	public void testConsultaPorNome() {
+		List<UsuarioSpringData> lista = interfaceSpringDataUser.buscaPorNome("Leonardo");
 		
+		for (UsuarioSpringData usuarios : lista) {
+			System.out.println("Consultando nome: "+usuarios);
+		}
+	}
 	
 }
