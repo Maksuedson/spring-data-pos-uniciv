@@ -22,11 +22,11 @@ public class AppSpringDataTest {
 	
 	public void testInsert() {
 		UsuarioSpringData usuario = new UsuarioSpringData();
-		usuario.setNome("The cure");
-		usuario.setLogin("cure");
-		usuario.setSenha("2221-8783");
+		usuario.setNome("Foo fite");
+		usuario.setLogin("foo");
+		usuario.setSenha("111-222");
 		usuario.setEmail("thecure@gmail.com");
-		usuario.setIdade(44);
+		usuario.setIdade(33);
 		
 		interfaceSpringDataUser.save(usuario);
 		System.out.println("Dados gravado com sucesso: "+usuario);
@@ -99,9 +99,14 @@ public class AppSpringDataTest {
 		
 	}
 	
-	@Test
+	
 	public void deletarPorNome() {
 		interfaceSpringDataUser.deletarPorNome("The cure2");
+	}
+	
+	@Test
+	public void updatePorNome() {
+		interfaceSpringDataUser.atualizarEmailPorNome("foofighters@hotmail.com", "Foo fite");
 	}
 	
 }
