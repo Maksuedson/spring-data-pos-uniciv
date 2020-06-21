@@ -83,13 +83,20 @@ public class AppSpringDataTest {
 		System.out.println("Deletando usuário: "+usuarios.get().getNome());
 	}	
 	
-	@Test
+	
 	public void testConsultaPorNome() {
 		List<UsuarioSpringData> lista = interfaceSpringDataUser.buscaPorNome("Leonardo");
 		
 		for (UsuarioSpringData usuarios : lista) {
 			System.out.println("Consultando nome: "+usuarios);
 		}
+	}
+	
+	@Test
+	public void testConsultaPorNomeParam() {
+		UsuarioSpringData usuario = interfaceSpringDataUser.buscaPorNomeParam("Leonardo");
+		System.out.println("Consulta por parâmetro: "+usuario.getNome());
+		
 	}
 	
 }
