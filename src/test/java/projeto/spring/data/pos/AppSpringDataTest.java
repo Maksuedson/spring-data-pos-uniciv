@@ -22,11 +22,11 @@ public class AppSpringDataTest {
 	
 	public void testInsert() {
 		UsuarioSpringData usuario = new UsuarioSpringData();
-		usuario.setNome("Jackson Kless");
-		usuario.setLogin("erick");
-		usuario.setSenha("303030");
-		usuario.setEmail("erick@gmail.com");
-		usuario.setIdade(23);
+		usuario.setNome("The cure");
+		usuario.setLogin("cure");
+		usuario.setSenha("2221-8783");
+		usuario.setEmail("thecure@gmail.com");
+		usuario.setIdade(44);
 		
 		interfaceSpringDataUser.save(usuario);
 		System.out.println("Dados gravado com sucesso: "+usuario);
@@ -92,11 +92,16 @@ public class AppSpringDataTest {
 		}
 	}
 	
-	@Test
+	
 	public void testConsultaPorNomeParam() {
 		UsuarioSpringData usuario = interfaceSpringDataUser.buscaPorNomeParam("Leonardo");
 		System.out.println("Consulta por parâmetro: "+usuario.getNome());
 		
+	}
+	
+	@Test
+	public void deletarPorNome() {
+		interfaceSpringDataUser.deletarPorNome("The cure2");
 	}
 	
 }
