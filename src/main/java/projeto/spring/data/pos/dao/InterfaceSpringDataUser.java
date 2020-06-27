@@ -16,8 +16,7 @@ import projeto.spring.data.pos.model.UsuarioSpringData;
 public interface InterfaceSpringDataUser extends CrudRepository<UsuarioSpringData, Long> {
 
 	@Query(value = "select p from UsuarioSpringData p where p.nome like %?1%")
-	public List<UsuarioSpringData> buscaPorNome (String nome);
-	
+	public List<UsuarioSpringData> buscaPorNome (String nome);	
 	
 	@Query(value = "select p from UsuarioSpringData p where p.nome = :paramnome")
 	public UsuarioSpringData buscaPorNomeParam(@Param ("paramnome")String paramnome);

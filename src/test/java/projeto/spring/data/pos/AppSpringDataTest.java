@@ -10,6 +10,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import projeto.spring.data.pos.dao.InterfaceSpringDataUser;
+import projeto.spring.data.pos.dao.InterfaceTelefone;
+import projeto.spring.data.pos.model.Telefone;
 import projeto.spring.data.pos.model.UsuarioSpringData;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -18,6 +20,9 @@ public class AppSpringDataTest {
 	
 	@Autowired
 	private InterfaceSpringDataUser interfaceSpringDataUser;
+	
+	@Autowired
+	private InterfaceTelefone interfaceTelefone;
 	
 	
 	public void testInsert() {
@@ -100,13 +105,40 @@ public class AppSpringDataTest {
 	}
 	
 	
-	public void deletarPorNome() {
+	public void testDeletarPorNome() {
 		interfaceSpringDataUser.deletarPorNome("The cure2");
 	}
 	
-	@Test
-	public void updatePorNome() {
+	
+	public void testUpdateEmailPorNome() {
 		interfaceSpringDataUser.atualizarEmailPorNome("foofighters@hotmail.com", "Foo fite");
 	}
+	
+//-----------------------------------------------------------------------------------------------
+	
+	
+	public void testInsertTelefone() {
+		
+		Optional<UsuarioSpringData> usuario = interfaceSpringDataUser.findById(1L);
+		
+		Telefone telefone = new Telefone();
+		telefone.setNumero("(62)9 9457-2398");
+		telefone.setTipo("Trabalho");
+		telefone.setUsuario(usuario.get());
+		
+		interfaceTelefone.save(telefone);
+		
+	}
+	
+	@Test
+	public void testConsultaComTelefone() {
+		Optional<UsuarioSpringData> usuario = interfaceSpringDataUser.findById(1L) ;
+		System.out.println("Consultando dados: "+usuario);
+		
+		for (Telefone telefone : usuario.get().getTelefones()) {
+			System.out.println(telefone.getNumero());
+			System.out.println(telefone.getTipo());
+		}
+	}	
 	
 }

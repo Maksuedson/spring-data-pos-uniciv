@@ -3,5 +3,6 @@
 		
 	<persistence-unit name="projeto-spring-data-pos">
 	<class>projeto.spring.data.pos.model.UsuarioSpringData</class>
+	<class>projeto.spring.data.pos.model.Telefone</class>
 	</persistence-unit>
 </persistence>
